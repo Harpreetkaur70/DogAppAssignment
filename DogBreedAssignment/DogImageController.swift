@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import Alamofire
+import Alamofire
 class DogImageController: UIViewController {
     @IBOutlet weak var dogImage: UIImageView!
     
@@ -47,7 +47,7 @@ class DogImageController: UIViewController {
                 break
                 
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error.localizedDescription)   //print error message
                 break
             }
              
