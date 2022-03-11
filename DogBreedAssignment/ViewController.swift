@@ -71,7 +71,7 @@ class ViewController: UIViewController {
                 
                 break
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error.localizedDescription)  //print error message
                 break
             }
              
@@ -83,6 +83,7 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dogs.count
     }
+    //Custom Table View
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {   //Adding data to the table view.
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         let dogie = dogs[indexPath.row]
