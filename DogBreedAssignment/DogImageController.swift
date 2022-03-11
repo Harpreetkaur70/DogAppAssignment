@@ -32,7 +32,7 @@ class DogImageController: UIViewController {
  //MARK: DogRandom Images webservice
     func getRandomDogImages(){
         let headers: HTTPHeaders = [
-            "Content-Type": "application/json"
+            "Content-Type": "application/json"            //Content type is json array
         ]
         
     AF.request(randomDogImgApi, method: .get, parameters: [:], encoding: URLEncoding.default, headers:  headers ).validate(contentType: ["application/json"]).responseJSON { response in
@@ -47,7 +47,7 @@ class DogImageController: UIViewController {
                 break
                 
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error.localizedDescription)   //print error message
                 break
             }
              

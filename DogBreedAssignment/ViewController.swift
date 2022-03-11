@@ -8,11 +8,11 @@
 import UIKit
 import Alamofire
 import SDWebImage
-let randomDogImgApi = "https://dog.ceo/api/breeds/image/random"
+let randomDogImgApi = "https://dog.ceo/api/breeds/image/random"      //Api URL for images
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    let dogApi = "https://dog.ceo/api/breeds/list/all"
+    let dogApi = "https://dog.ceo/api/breeds/list/all"              //API URL for dog list
   
     var dogs = [String]()
     var breads = [Dictionary<String,Any>.Values.Element]()
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
                 switch response.result {
                 case .success( _):
                     //success, do anything
-                    if let data = response.value as? Dictionary<String,Any>, let resp = data["message"] as? Dictionary<String,Any>{
+                    if let data = response.value as? Dictionary<String,Any>, let resp = data["message"] as? Dictionary<String,Any>{    //information saving in data array
                        
                         self.dogs = Array(resp.keys)
                         
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
                 
                 break
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error.localizedDescription)  //print error message
                 break
             }
              
@@ -83,7 +83,8 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dogs.count
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //Custom Table View
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {   //Adding data to the table view.
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         let dogie = dogs[indexPath.row]
         let breads = (breads[indexPath.row] as? Array<String>)
