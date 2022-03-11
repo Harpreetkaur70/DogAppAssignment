@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Alamofire
+//import Alamofire
 class DogImageController: UIViewController {
     @IBOutlet weak var dogImage: UIImageView!
     
@@ -32,7 +32,7 @@ class DogImageController: UIViewController {
  //MARK: DogRandom Images webservice
     func getRandomDogImages(){
         let headers: HTTPHeaders = [
-            "Content-Type": "application/json"
+            "Content-Type": "application/json"            //Content type is json array
         ]
         
     AF.request(randomDogImgApi, method: .get, parameters: [:], encoding: URLEncoding.default, headers:  headers ).validate(contentType: ["application/json"]).responseJSON { response in
